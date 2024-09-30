@@ -13,6 +13,7 @@ export class ReservationsService {
     // @ts-expect-error Omit type
     return this.reservationsRepository.create({
       ...createReservationDto,
+      userId: '123',
       timestamp: new Date(),
     });
   }

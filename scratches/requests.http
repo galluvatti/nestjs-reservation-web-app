@@ -10,8 +10,7 @@ Content-Type: application/json
 "startDate" : "2024-12-01",
 "endDate" : "2025-12-01",
 "placeId" : "place",
-"invoiceId" : "invoice",
-"userId": "123"
+"invoiceId" : "invoice"
 }
 
 > {%

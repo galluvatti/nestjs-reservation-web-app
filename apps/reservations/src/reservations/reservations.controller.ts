@@ -19,17 +19,21 @@ export class ReservationsController {
 
   @Post()
   create(@Body() createReservationDto: CreateReservationDto) {
-    this.logger.log(`Creating new Reservation ${createReservationDto}`);
+    this.logger.log(
+      `Creating new Reservation ${JSON.stringify(createReservationDto)}`,
+    );
     return this.reservationsService.create(createReservationDto);
   }
 
   @Get()
   findAll() {
+    this.logger.log(`Finding all Reservations`);
     return this.reservationsService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
+    this.logger.log(`Finding Reservation ${id}`);
     return this.reservationsService.findOne(id);
   }
 
@@ -38,11 +42,15 @@ export class ReservationsController {
     @Param('id') id: string,
     @Body() updateReservationDto: UpdateReservationDto,
   ) {
+    this.logger.log(
+      `Updating Reservation ${id} with values ${JSON.stringify(updateReservationDto)}`,
+    );
     return this.reservationsService.update(id, updateReservationDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
+    this.logger.log(`Deleting Reservation ${id}`);
     return this.reservationsService.remove(id);
   }
 }

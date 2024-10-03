@@ -9,6 +9,8 @@ services:
       - '3000:3000'
     volumes:
       - .:/usr/src/app
+    env_file:
+      - ./apps/reservations/.env
     depends_on:
       - mongo
   auth:
@@ -21,6 +23,8 @@ services:
       - '3001:3001'
     volumes:
       - .:/usr/src/app
+    env_file:
+      - ./apps/auth/.env
     depends_on:
       - mongo
   mongo:
